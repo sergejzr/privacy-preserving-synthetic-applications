@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 2.5cm 2.5cm; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11pt; line-height: 1.5; color: #222; }
+  .header { margin-bottom: 20pt; }
+  .name { font-size: 14pt; font-weight: bold; }
+  .contact { font-size: 9pt; color: #555; margin-top: 2pt; }
+  .subject { font-weight: bold; margin: 16pt 0; font-size: 11pt; }
+  .salutation { margin-bottom: 10pt; }
+  .body-text { text-align: justify; }
+  .closing { margin-top: 20pt; }
+  .signature { margin-top: 6pt; font-weight: bold; }
+  .footer { margin-top: 30pt; font-size: 8pt; color: #999; border-top: 1px solid #ddd; padding-top: 4pt; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="name">{{ name }}</div>
+  <div class="contact">{{ email }} | {{ phone }} | {{ address }}</div>
+</div>
+
+<div class="subject">Bewerbung als {{ position_title }} – {{ organization }}</div>
+
+<div class="salutation">Sehr geehrte Damen und Herren,</div>
+
+<div class="body-text">
+{{ body_text }}
+</div>
+
+<div class="closing">
+Mit freundlichen Grüßen,<br>
+<div class="signature">{{ name }}</div>
+</div>
+
+<div class="footer">
+Synthetic fictional test data — not a real applicant
+</div>
+
+</body>
+</html>

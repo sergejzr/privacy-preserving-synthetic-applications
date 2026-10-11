@@ -1,0 +1,21 @@
+scenario:
+  title: "Research Program Manager (m/f/d) — Fictional Initiative"
+  organization: "Fictional Research Directorate"
+  language: de
+  fictional_universe: "A fully fictional research setting"
+generation:
+  seed: 20261008
+llm:
+  base_url_env: SYNTH_LLM_BASE_URL
+  model_env: SYNTH_LLM_MODEL
+  api_key_env: SYNTH_LLM_API_KEY
+  timeout_seconds: 180
+  max_retries: 2
+  trusted_hosts: []
+paths:
+  output: /tmp/synthetic-applications-output
+privacy:
+  prohibit_reference_text_in_llm_calls: true
+  prohibit_network_in_structure_analysis: true
+  publication_requires_manual_approval: true
+  use_example_domains_only: true

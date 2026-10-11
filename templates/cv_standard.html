@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 2cm 2.5cm; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10pt; line-height: 1.4; color: #222; }
+  h1 { font-size: 18pt; margin-bottom: 0; border-bottom: 2px solid #333; padding-bottom: 4pt; }
+  .subtitle { font-size: 10pt; color: #555; margin-top: 2pt; }
+  h2 { font-size: 12pt; margin-top: 16pt; margin-bottom: 6pt; border-bottom: 1px solid #aaa; padding-bottom: 2pt; }
+  .entry { margin-bottom: 8pt; }
+  .entry-title { font-weight: bold; }
+  .entry-date { float: right; color: #666; font-size: 9pt; }
+  .entry-sub { color: #444; font-size: 9pt; }
+  .entry-desc { margin-top: 2pt; font-size: 9pt; color: #333; }
+  ul { margin: 2pt 0; padding-left: 14pt; }
+  li { font-size: 9pt; margin-bottom: 1pt; }
+  .two-col { display: flex; gap: 20pt; }
+  .col-left { width: 35%; }
+  .col-right { width: 65%; }
+  .sidebar { background: #f5f5f5; padding: 8pt 10pt; border-radius: 3pt; }
+  .sidebar h2 { font-size: 10pt; border: none; margin-top: 8pt; }
+  .label { color: #666; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5pt; }
+</style>
+</head>
+<body>
+
+{% if photo_html %}
+<div style="float: right; margin-left: 12pt; margin-bottom: 8pt; width: 110px;">
+{{ photo_html }}
+</div>
+{% endif %}
+
+<h1>{{ name }}</h1>
+<div class="subtitle">{{ email }} | {{ phone }} | {{ address }}</div>
+
+<h2>Berufserfahrung</h2>
+{% for e in employment_history %}
+<div class="entry">
+  <div class="entry-title">{{ e.position }} <span class="entry-date">{{ e.month_start }} – {{ e.month_end }}</span></div>
+  <div class="entry-sub">{{ e.employer }}</div>
+  <div class="entry-desc">{{ e.description }}</div>
+</div>
+{% endfor %}
+
+<h2>Bildungsweg</h2>
+{% for e in education %}
+<div class="entry">
+  <div class="entry-title">{{ e.degree }} <span class="entry-date">{{ e.year_start }} – {{ e.year_end }}</span></div>
+  <div class="entry-sub">{{ e.institution }}{% if e.grade %}, Abschluss: {{ e.grade }}{% endif %}</div>
+</div>
+{% endfor %}
+
+<h2>Forschungserfahrung</h2>
+{% for p in research_projects %}
+<div class="entry">
+  <div class="entry-title">{{ p.name }}</div>
+  <div class="entry-sub">Rolle: {{ p.role }}{% if p.budget_credits %} | Budget: {{ p.budget_credits }}{% endif %}</div>
+  <div class="entry-desc">{{ p.description }}</div>
+</div>
+{% endfor %}
+
+</body>
+</html>
