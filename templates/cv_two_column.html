@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 1.5cm 1.5cm; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10pt; line-height: 1.4; color: #222; margin: 0; }
+  .container { display: flex; min-height: 100vh; }
+  .left { width: 33%; background: #2c3e50; color: #ecf0f1; padding: 16pt 12pt; }
+  .right { width: 67%; padding: 16pt 18pt; }
+  .name { font-size: 16pt; font-weight: bold; margin-bottom: 4pt; }
+  .contact { font-size: 8pt; line-height: 1.6; margin-bottom: 12pt; }
+  .left h2 { font-size: 10pt; border-bottom: 1px solid #5d6d7e; padding-bottom: 2pt; margin-top: 14pt; text-transform: uppercase; letter-spacing: 1pt; }
+  .right h2 { font-size: 12pt; border-bottom: 1px solid #2c3e50; padding-bottom: 2pt; margin-top: 14pt; color: #2c3e50; }
+  .entry { margin-bottom: 8pt; }
+  .entry-title { font-weight: bold; font-size: 10pt; }
+  .entry-date { color: #7f8c8d; font-size: 8pt; }
+  .entry-sub { color: #555; font-size: 9pt; }
+  .entry-desc { font-size: 9pt; margin-top: 2pt; }
+  .skill-item { font-size: 9pt; margin-bottom: 3pt; }
+  .lang-item { font-size: 9pt; margin-bottom: 2pt; }
+  .lang-level { color: #bdc3c7; font-size: 8pt; }
+  .label { font-size: 7pt; text-transform: uppercase; color: #95a5a6; letter-spacing: 0.5pt; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="left">
+    <div class="name">{{ name }}</div>
+    <div class="contact">{{ email }}<br>{{ phone }}<br>{{ address }}</div>
+
+    {% if photo_html %}
+    <div style="text-align: center; margin: 8pt 0;">{{ photo_html }}</div>
+    {% endif %}
+
+    <h2>Kompetenzen</h2>
+    {% for s in skills %}
+    <div class="skill-item">{{ s }}</div>
+    {% endfor %}
+
+    <h2>Sprachen</h2>
+    {% for l in languages %}
+    <div class="lang-item">{{ l.language }} <span class="lang-level">({{ l.level }})</span></div>
+    {% endfor %}
+
+    <h2>Zertifikate</h2>
+    {% for c in certifications %}
+    <div class="skill-item">{{ c }}</div>
+    {% endfor %}
+  </div>
+  <div class="right">
+    <h2>Berufserfahrung</h2>
+    {% for e in employment_history %}
+    <div class="entry">
+      <div class="entry-title">{{ e.position }}</div>
+      <div class="entry-date">{{ e.month_start }} – {{ e.month_end }}</div>
+      <div class="entry-sub">{{ e.employer }}</div>
+      <div class="entry-desc">{{ e.description }}</div>
+    </div>
+    {% endfor %}
+
+    <h2>Bildungsweg</h2>
+    {% for e in education %}
+    <div class="entry">
+      <div class="entry-title">{{ e.degree }}</div>
+      <div class="entry-date">{{ e.year_start }} – {{ e.year_end }}</div>
+      <div class="entry-sub">{{ e.institution }}{% if e.grade %}, {{ e.grade }}{% endif %}</div>
+    </div>
+    {% endfor %}
+
+    <h2>Forschungsprojekte</h2>
+    {% for p in research_projects %}
+    <div class="entry">
+      <div class="entry-title">{{ p.name }}</div>
+      <div class="entry-sub">{{ p.role }}{% if p.budget_credits %} | {{ p.budget_credits }}{% endif %}</div>
+      <div class="entry-desc">{{ p.description }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</body>
+</html>

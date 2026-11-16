@@ -1,0 +1,8 @@
+run:
+  count: 5
+  seed: 42
+  stage: all
+  offline: true
+inputs:
+  input_dir: null
+  ocr_dir: null

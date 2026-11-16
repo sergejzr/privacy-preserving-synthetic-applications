@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 3cm 3cm; }
+  body { font-family: 'Times New Roman', Times, serif; font-size: 11pt; line-height: 1.6; color: #111; }
+  .org { text-align: center; font-size: 14pt; font-weight: bold; margin-bottom: 4pt; }
+  .org-sub { text-align: center; font-size: 10pt; color: #555; margin-bottom: 24pt; }
+  .title { text-align: center; font-size: 16pt; font-weight: bold; margin-bottom: 20pt; letter-spacing: 1pt; }
+  .body-text { text-align: justify; }
+  .footer { margin-top: 30pt; }
+  .date { margin-top: 8pt; }
+  .signature-area { margin-top: 24pt; }
+  .signature-line { width: 50%; border-top: 1px solid #333; margin-top: 24pt; padding-top: 4pt; font-size: 10pt; }
+  .stamp { margin-top: 10pt; font-size: 9pt; color: #888; }
+  .page-footer { margin-top: 40pt; font-size: 7pt; color: #aaa; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="org">{{ organization }}</div>
+<div class="org-sub">{{ org_subtitle }}</div>
+
+<div class="title">{{ document_title }}</div>
+
+<div class="body-text">
+{{ body_text }}
+</div>
+
+<div class="footer">
+  <div class="date">{{ location }}, den {{ date }}</div>
+  <div class="signature-area">
+    <div class="signature-line">{{ signature_name }}<br>{{ signature_title }}</div>
+  </div>
+  <div class="stamp">(Siegel der Einrichtung)</div>
+</div>
+
+<div class="page-footer">
+Synthetic fictional test data — not a real applicant
+</div>
+
+</body>
+</html>

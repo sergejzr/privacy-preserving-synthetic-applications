@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 2.5cm 2.5cm; }
+  body { font-family: 'Times New Roman', Times, serif; font-size: 11pt; line-height: 1.5; color: #111; }
+  .ref-header { margin-bottom: 20pt; }
+  .ref-subject { font-weight: bold; font-size: 12pt; margin-bottom: 14pt; }
+  .ref-body { text-align: justify; }
+  .ref-closing { margin-top: 20pt; }
+  .ref-signature { margin-top: 24pt; }
+  .ref-signature-line { border-top: 1px solid #333; width: 50%; margin-top: 30pt; padding-top: 4pt; font-size: 10pt; }
+  .ref-footer { margin-top: 40pt; font-size: 7pt; color: #aaa; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="ref-header">
+  {{ referee_name }}<br>
+  {{ referee_position }}<br>
+  {{ referee_organization }}<br>
+  {{ referee_contact }}
+</div>
+
+<div class="ref-subject">{{ subject }}</div>
+
+<div class="ref-body">
+{{ body_text }}
+</div>
+
+<div class="ref-closing">
+Mit freundlichen Grüßen,
+</div>
+
+<div class="ref-signature">
+  <div class="ref-signature-line">{{ referee_name }}</div>
+</div>
+
+<div class="ref-footer">
+Synthetic fictional test data — not a real applicant
+</div>
+
+</body>
+</html>
